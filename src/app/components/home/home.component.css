@@ -1,0 +1,23 @@
+input {
+  border-radius: 50px;
+  padding: 20px;
+}
+
+img {
+  max-height: 400px;
+  min-height: 400px;
+  min-width: auto;
+  max-width: auto;
+  background-size: cover;
+}
+
+.card {
+  background-color: #302c2c;
+  color: white;
+}
+
+button {
+  background-color: #ffd702;
+  width: 100px;
+  border-radius: 100px;
+}
