@@ -9,7 +9,16 @@
     </div>
     <div class="col-md-8">
       <h1>{{ data.title }}</h1>
-      <p>{{ data.synopsis }}</p>
+      <iframe
+        *ngIf="data.trailer"
+        width="500"
+        height="300"
+        [src]="getSafeUrl(data.trailer.embed_url)"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+      <hr />
+      <p class="limitedText">{{ data.synopsis }}</p>
     </div>
   </div>
 </div>

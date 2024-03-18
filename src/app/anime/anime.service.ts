@@ -10,6 +10,10 @@ export class AnimeService {
 
   constructor(private http: HttpClient) {}
 
+  getAnimeList(): Observable<any> {
+    return this.http.get<any>(`${this.url}anime`);
+  }
+
   searchAnime(query: string): Observable<any> {
     return this.http.get<any>(`${this.url}anime?q=${query}`);
   }

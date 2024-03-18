@@ -4,6 +4,7 @@ import {
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-modal-information',
@@ -13,8 +14,11 @@ import {
 export class ModalInformationComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private ref: MatDialogRef<ModalInformationComponent>
-  ) {
-    console.log(data);
+    private ref: MatDialogRef<ModalInformationComponent>,
+    private sanitizer: DomSanitizer
+  ) {}
+
+  getSafeUrl(embedUrl: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 }

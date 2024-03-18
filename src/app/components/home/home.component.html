@@ -8,6 +8,7 @@
           placeholder="Search Anime..."
           aria-label="Search"
           [(ngModel)]="query"
+          required
         />
         <button type="button" (click)="search()">
           <i class="bi bi-search"></i>
@@ -15,27 +16,54 @@
       </div>
     </div>
   </div>
-  <div class="container mt-4">
-    <div class="row">
+</div>
+<div class="container mt-4" *ngIf="anime">
+  <div class="row">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex"
+      *ngFor="let item of animeData.data"
+    >
       <div
-        class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex"
-        *ngFor="let item of animeList.data"
+        class="card mx-auto"
+        style="margin-top: 10px"
+        (click)="getAnimeDetails(item.mal_id)"
       >
-        <div
-          class="card mx-auto"
-          style="margin-top: 10px"
-          (click)="getAnimeDetails(item.mal_id)"
-        >
-          <div class="card-body h-100">
-            <img
-              class="card-img-top"
-              src="{{ item.images.webp.large_image_url }}"
-            />
-            <div class="card-body">
-              <p class="card-text text-center">
-                {{ item.title }}
-              </p>
-            </div>
+        <div class="card-body h-100">
+          <img
+            class="card-img-top"
+            src="{{ item.images.webp.large_image_url }}"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">
+              {{ item.title }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex"
+      *ngFor="let item of animeList.data"
+    >
+      <div
+        class="card mx-auto"
+        style="margin-top: 10px"
+        (click)="getAnimeDetails(item.mal_id)"
+      >
+        <div class="card-body h-100">
+          <img
+            class="card-img-top"
+            src="{{ item.images.webp.large_image_url }}"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">
+              {{ item.title }}
+            </p>
           </div>
         </div>
       </div>

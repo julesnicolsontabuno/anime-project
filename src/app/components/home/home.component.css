@@ -11,6 +11,10 @@ img {
   background-size: cover;
 }
 
+img:hover {
+  cursor: pointer;
+}
+
 .card {
   background-color: #302c2c;
   color: white;

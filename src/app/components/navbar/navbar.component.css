@@ -4,6 +4,14 @@
   background-color: #302c2c;
 }
 
+.navbar-brand.active {
+  color: #ffd702;
+}
+
+.navbar-nav .nav-item.active a {
+  color: #ffd702;
+}
+
 a {
   color: white;
 }
